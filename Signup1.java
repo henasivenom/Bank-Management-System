@@ -18,7 +18,7 @@ public class Signup1 extends JFrame implements ActionListener {
 	
 	
 	public Signup1() {
-		setTitle("Application Form");
+		setTitle("NEW Account Application Form Page 1");
 		setLayout(null);
 		
 		Random ran = new Random();
@@ -209,6 +209,9 @@ public class Signup1 extends JFrame implements ActionListener {
 				Conn c = new Conn();
 				String query = "insert into signup values('"+formno+"','"+name+"','"+fname+"','"+dob+"','" +gender+"','"+email+"','"+marital+"','"+address+"','"+city+"','"+pin+"','"+state+"')";
 				c.s.executeUpdate(query);
+				
+				setVisible(false);
+				new Signup2(formno).setVisible(true);
 			}
 		}
 		catch (Exception e){
