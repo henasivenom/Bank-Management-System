@@ -1,5 +1,6 @@
 package bank.management.sys;
 import java.awt.Color;
+import java.sql.*;
 import java.awt.Font;
 import java.awt.Image;
 import javax.swing.*;
@@ -83,8 +84,25 @@ public class Login extends JFrame implements ActionListener{
 		pinTextField.setText("Enter your PIN");
 	}
 	else if(ae.getSource() == login) {
+		Conn conn = new Conn();
+		String cardNumber = cardTextField.getText();
+		String pinNumber = pinTextField.getText();
+		String query = "select * from login where cardNumber = '"+cardNumber+"' and pin = '"+pinNumber+"'";
 		
-	} 
+		try {
+			ResultSet rs = conn.s.executeQuery(query);
+			if(rs.next() ) {
+				setVisible(false);
+				new Transactions(pinNumber).setVisible(true);
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Incorrect Card Number or PIN");
+			}
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+		} 
 	else if(ae.getSource() == signup) {
 		setVisible(false);
 		new Signup1().setVisible(true);
