@@ -209,7 +209,7 @@ public class Signup3 extends JFrame implements ActionListener{
 					conn.s.executeUpdate(query1);
 					conn.s.executeUpdate(query2);
 					
-					JOptionPane.showMessageDialog(null, "Card Number: "+ cardNumber+ "\n Pin: "+ pin);
+					JOptionPane.showMessageDialog(null, "Card Number: "+ cardNumber+ "\n Pin: "+ pinNumber);
 				}
 			} catch(Exception e) {
 				System.out.println(e);
