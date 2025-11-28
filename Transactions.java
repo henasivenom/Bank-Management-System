@@ -89,6 +89,10 @@ public class Transactions extends JFrame implements ActionListener{
 			setVisible(false);
 			new BalanceEnquiry(pinNumber).setVisible(true);
 		}
+		else if(ae.getSource() == ministatement) {
+			setVisible(false);
+			new MiniStatement(pinNumber).setVisible(true);
+		}
 	}
 
 	public static void main(String[] args) {
